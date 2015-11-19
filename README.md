@@ -24,3 +24,13 @@ MyBackend
 ```
 
 Nginx will be configured with virutal host `www.examples.com` with the backend `MyBackend`.
+
+Sample Run:
+```sh
+# docker run -e ETCD_HOST=192.168.0.10:4001 \
+	-d --restart=always \
+	-v /data/ssl:/etc/nginx/certs \
+	--name=nginx-proxy starpost/nginx-proxy-etcd
+```
+
+
