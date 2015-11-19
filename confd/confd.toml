@@ -1,0 +1,8 @@
+backend = "etcd"
+confdir = "/etc/confd"
+log-level = "info"
+interval = 600
+nodes = [
+  "http://ETCD_HOST",
+]
+
