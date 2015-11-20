@@ -111,7 +111,9 @@ server {
 
 	location / {
 		proxy_pass http://{{getv $backend}};
+		{{if $loc_enable}}
 		include {{ printf "/etc/nginx/vhost.d/%s_location" $vhost}};
+		{{end}}
 	}
 }
 {{end}}
