@@ -98,7 +98,7 @@ server {
 	location / {
 		proxy_pass http://{{getv $backend}};
 		{{if $loc_enable}}
-		include {{ printf "/etc/nginx/vhost.d/%s_location" $vhost}};
+		include {{ printf "/etc/nginx/vhost.d/%s" (getv $loc) }};
 		{{end}}
 	}
 }
@@ -112,7 +112,7 @@ server {
 	location / {
 		proxy_pass http://{{getv $backend}};
 		{{if $loc_enable}}
-		include {{ printf "/etc/nginx/vhost.d/%s_location" $vhost}};
+		include {{ printf "/etc/nginx/vhost.d/%s" (getv $loc) }};
 		{{end}}
 	}
 }
