@@ -95,6 +95,10 @@ server {
 
 	add_header Strict-Transport-Security "max-age=31536000";
 
+	client_max_body_size 16M;
+	proxy_read_timeout 5m;
+	proxy_send_timeout 5m;
+
 	location / {
 		proxy_pass http://{{getv $backend}};
 		{{if $loc_enable}}
@@ -108,6 +112,10 @@ server {
 	server_name {{ $vhost }};
 	listen 80;
 	access_log /var/log/nginx/access.log vhost;
+
+	client_max_body_size 16M;
+	proxy_read_timeout 5m;
+	proxy_send_timeout 5m;
 
 	location / {
 		proxy_pass http://{{getv $backend}};
